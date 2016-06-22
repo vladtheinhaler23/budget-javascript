@@ -12,12 +12,10 @@ var sass = require('gulp-sass');
 var sourcemaps = require('gulp-sourcemaps');
 var lib = require('bower-files')({
   "overrides":{
-    "bootstrap" : {
+    "please-wait" : {
       "main": [
-        "less/bootstrap.less",
-        "dist/css/bootstrap.css",
-        "dist/js/bootstrap.js",
-        "dist/fonts/*"
+        "build/please-wait.js",
+        "build/please-wait.css"
       ]
     }
   }
@@ -67,7 +65,6 @@ gulp.task('jshint', function(){
 gulp.task('bowerJS', function () {
   return gulp.src(lib.ext('js').files)
     .pipe(concat('vendor.min.js'))
-    .pipe(uglify())
     .pipe(gulp.dest('./build/js'));
 });
 

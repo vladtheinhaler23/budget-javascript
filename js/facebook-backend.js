@@ -1,9 +1,9 @@
 var moment = require('moment');
 var appid = require('./../.env').appid;
-function statusChangeCallback(response, display) {
+function statusChangeCallback(response, display, displaypic) {
     console.log('statusChangeCallback');
     console.log(response);
-    getinfo(response, display);
+    getinfo(response, display, displaypic);
     // The response object is returned with a status field that lets the
     // app know the current login status of the person.
     // Full docs on the response object can be found in the documentation
@@ -26,18 +26,34 @@ function statusChangeCallback(response, display) {
   // This function is called when someone finishes with the Login
   // Button.  See the onlogin handler attached to it in the sample
   // code below.
-  exports.checkLoginState = function(display) {
+  exports.checkLoginState = function(display, displaypic) {
     FB.getLoginStatus(function(response) {
-      statusChangeCallback(response, display);
+      statusChangeCallback(response, display, displaypic);
     });
   };
+  function getpic(response, accessToken, displaypic){
+    console.log(response.id);
+    FB.api(
+      '/' + response.id + '/picture',
+      'GET',
+      {"type":"large"},
+      function(response) {
+        displaypic(response);
+      }
+  );
+  }
 
-
-  function getinfo(response, display){
-    var url = "https://graph.facebook.com/v2.6/me?fields=id%2Cname%2Cbirthday%2Cemail%2Cpicture%2Cfirst_name%2Clast_name&access_token=" + response.authResponse.accessToken;
-    var user = $.getJSON(url).then(function(response) {
+  function getinfo(response, display, displaypic){
+    var accessToken = response.authResponse.accessToken;
+    FB.api(
+      '/me',
+      'GET',
+      {"fields":"id,name,birthday,email,first_name,last_name"},
+      function(response) {
         display(response);
-    });
+        getpic(response, accessToken, displaypic);
+      }
+    );
   }
   window.fbAsyncInit = function() {
   FB.init({
@@ -47,4 +63,5 @@ function statusChangeCallback(response, display) {
     xfbml      : true,  // parse social plugins on this page
     version    : 'v2.6' // use graph api version 2.5
   });
+
 }
