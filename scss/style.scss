@@ -2,5 +2,20 @@
   display: none;
 }
 #weed{
-  height: 250px;
+  height: 30vh;
+}
+body {
+   display: flex;
+   min-height: 100vh;
+   flex-direction: column;
+ }
+
+ main {
+   flex: 1 0 auto;
+ }
+ footer{
+   margin-top: 0;
+ }
+#smoking{
+  margin-bottom: -1.5em;
 }
