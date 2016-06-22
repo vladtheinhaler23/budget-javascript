@@ -1,24 +1,17 @@
 var moment = require('moment');
 var appid = require('./../.env').appid;
+var writeUserData = require("./../js/firebase.js").writeUserData;
 function statusChangeCallback(response, display, displaypic) {
-    console.log('statusChangeCallback');
-    console.log(response);
-    getinfo(response, display, displaypic);
     // The response object is returned with a status field that lets the
     // app know the current login status of the person.
     // Full docs on the response object can be found in the documentation
     // for FB.getLoginStatus().
     if (response.status === 'connected') {
-
+        getinfo(response, display, displaypic);
     } else if (response.status === 'not_authorized') {
-      // The person is logged into Facebook, but not your app.
-      document.getElementById('status').innerHTML = 'Please log ' +
-        'into this app.';
+
     } else {
-      // The person is not logged into Facebook, so we're not sure if
-      // they are logged into this app or not.
-      document.getElementById('status').innerHTML = 'Please log ' +
-        'into Facebook.';
+
     }
 
   }
@@ -51,6 +44,7 @@ function statusChangeCallback(response, display, displaypic) {
       {"fields":"id,name,birthday,email,first_name,last_name"},
       function(response) {
         display(response);
+        writeUserData(response.id, response.name);
         getpic(response, accessToken, displaypic);
       }
     );
