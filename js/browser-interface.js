@@ -28,15 +28,24 @@ function display(response){
     var dob = moment(date).format("MMMM Do, YYYY");
     $("#age").val(dob);
     $("#ageI").addClass("active");
+    $("#ageicon").addClass("active");
+
   }
   if(response.email != null){
     $("#email").val(response.email);
     $("#emailI").addClass("active");
+    $("#emailicon").addClass("active");
+
   }
   $("#first_name").val(response.first_name);
   $("#last_name").val(response.last_name);
+
   $("#first_nameI").addClass("active");
+  $("#firsticon").addClass("active");
+
   $("#last_nameI").addClass("active");
+  $("#lasticon").addClass("active");
+
 
 
   $("#form").fadeIn(1200);
