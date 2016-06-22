@@ -1,4 +1,5 @@
 var moment = require('moment');
+var appid = require('./../.env').appid;
 function statusChangeCallback(response, display) {
     console.log('statusChangeCallback');
     console.log(response);
@@ -40,7 +41,7 @@ function statusChangeCallback(response, display) {
   }
   window.fbAsyncInit = function() {
   FB.init({
-    appId      : '290094467990914',
+    appId      : appid,
     cookie     : true,  // enable cookies to allow the server to access
                         // the session
     xfbml      : true,  // parse social plugins on this page

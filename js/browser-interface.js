@@ -13,7 +13,7 @@ function display(response){
   $("#last_nameI").addClass("active");
   $("#emailI").addClass("active");
   $("#ageI").addClass("active");
-  $("#form").fadeIn("slow");
+  $("#form").fadeIn(1200);
 }
 $(document).ready(function(){
 
