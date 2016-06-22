@@ -1,0 +1,31 @@
+[
+  '{{repeat(1, 7)}}',
+  {
+    uid: '{{objectId()}}',
+    firstSignIn: '{{bool()}}',
+    budget: '{{floating(100, 500, 2, "$0,0.00")}}',
+    picture: 'http://placehold.it/32x32',
+    age: '{{integer(20, 40)}}',
+    name: '{{firstName()}} {{surname()}}',
+    gender: '{{gender()}}',
+    email: '{{email()}}',
+    phone: '+1 {{phone()}}',
+    address: '{{city()}}, {{state()}}',
+    dob: '{{date(new Date(1989, 0, 1), new Date(), "YYYY-MM-ddThh:mm:ss Z")}}',
+    sPref:'{{lorem(1, "words")}}',
+    tPref:'{{lorem(1, "words")}}',
+
+    transactions: [
+      '{{repeat(30)}}',
+      {
+        id: '{{index()}}',
+        date: '{{date(new Date(2016, 0, 1), new Date(), "YYYY-MM-ddThh:mm:ss Z")}}',
+        location: '{{city()}}, {{state()}}',
+        dispensary: '{{lorem(2, "words")}}',
+        strain: '{{lorem(2, "words")}}',
+        amount: '{{floating(20, 100, 2, "$0,0.00")}}',
+        ish: '{{lorem(1, "words")}}',
+        efc: '{{lorem(1, "words")}}'
+      }
+    ]
+  }
