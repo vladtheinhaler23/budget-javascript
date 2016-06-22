@@ -64,6 +64,9 @@ $(document).ready(function(){
 
     $("#show").click(function(){
       checkLoginState(display, displaypic);
-
+    });
+    $(".dashboard").click(function(){
+      $("#landpage").hide();
+      $("#dashboard").fadeIn(900);
     });
 });

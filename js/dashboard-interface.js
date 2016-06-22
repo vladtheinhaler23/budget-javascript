@@ -1,4 +1,3 @@
-function dashboardInit(){
 var ProgressBar = require('progressbar.js');
 var bar = new ProgressBar.SemiCircle(progress_bar, {
   strokeWidth: 6,
@@ -31,4 +30,3 @@ bar.text.style.fontFamily = '"Raleway", Helvetica, sans-serif';
 bar.text.style.fontSize = '2rem';
 
 bar.animate(0.5);
-}
