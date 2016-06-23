@@ -10,14 +10,7 @@ firebase.initializeApp(config);
 
 exports.writeUserData = function(userId, name) {
  firebase.database().ref('users/' + userId).set({
-   username: name,
-   email: "",
-   city: "",
-   state: "",
-   typepref: "",
-   eflpref: "",
-   budget: "",
-   transactions: ""
+   username: name
  });
 };
 
@@ -28,5 +21,22 @@ exports.getUserTransactions = function(userId) {
   createUserCard(userTransactions);
 
 
+  });
+};
+exports.checkUser = function(FBuser, display, accessToken, displaypic, getpic, writeUserData){
+  firebase.database().ref('/users/' + FBuser.id).once('value').then(function(snapshot) {
+  var user = snapshot.val();
+  if(user === null){
+    display(FBuser);
+    writeUserData(FBuser.id, FBuser.name);
+    getpic(FBuser, accessToken, displaypic);
+  }else{
+  }
 });
 };
+exports.updateUser = function(id, user){
+  var updates = {};
+  updates['/user-posts/' + id] = user;
+
+  return firebase.database().ref().update(updates);
+}

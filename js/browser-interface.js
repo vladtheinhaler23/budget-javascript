@@ -1,6 +1,7 @@
 var checkLoginState = require('./../js/facebook-backend.js').checkLoginState;
 var getUserTransactions = require('./../js/firebase.js').getUserTransactions;
 var transactions = require('./../js/firebase.js').transactions;
+var updateUser = require('./../js/firebase.js').updateUser;
 var moment = require('moment');
 // var loading_screen = pleaseWait({
 //   logo: "pictures/logo.png",
@@ -24,6 +25,7 @@ var moment = require('moment');
 //   }
 // })
 function display(response){
+  $("#id").val(response.id);
   console.log(response);
   if(response.birthday != null){
     var date = new Date(response.birthday);
@@ -74,6 +76,23 @@ $(document).ready(function(){
     $("#test").click(function() {
       var userTransactions = getUserTransactions(0);
       console.log(userTransactions);
+    });
+    $("#form").submit(function(e){
+      e.preventDefault();
+      var id = $("#id").val();
+      var user = {
+        first_name: $("#first_name").val(),
+        last_name: $("#last_name").val(),
+        email: $("#email").val(),
+        birthdate: moment($("#age").val()).format("MMMM Do, YYYY"),
+        city: $("#city").val(),
+        state: $("#state").val(),
+        sPref: $("#sPref").val(),
+        tPref: $("#tPref").val(),
+        budget: parseInt($("#budget").val())
+      };
+      console.log(user);
+      // updateUser(id, user);
 
-    })
+    });
 });

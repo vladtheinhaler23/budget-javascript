@@ -1,6 +1,7 @@
 var moment = require('moment');
 var appid = require('./../.env').appid;
 var writeUserData = require("./../js/firebase.js").writeUserData;
+var checkUser = require("./../js/firebase.js").checkUser;
 function statusChangeCallback(response, display, displaypic) {
     // The response object is returned with a status field that lets the
     // app know the current login status of the person.
@@ -47,9 +48,7 @@ function statusChangeCallback(response, display, displaypic) {
       'GET',
       {"fields":"id,name,birthday,email,first_name,last_name"},
       function(response) {
-        display(response);
-        writeUserData(response.id, response.name);
-        getpic(response, accessToken, displaypic);
+          checkUser(response, display, accessToken, displaypic, getpic, writeUserData);
       }
     );
   }

@@ -59,7 +59,7 @@
     </div>
     <div class="row myhidden" id="form">
 
-    <form class="col s12">
+    <form class="col s12" id="form">
       <div class="row">
         <div class="input-field col s6">
            <i class="material-icons prefix" id="firsticon">perm_identity</i>
@@ -87,12 +87,12 @@
       <div class="row">
         <div class="input-field col s6">
            <i class="material-icons prefix" id="cityicon">edit_location</i>
-          <input id="email" type="text">
-          <label for="email" id="emailI">City</label>
+          <input id="city" type="text">
+          <label for="city" id="cityI">City</label>
         </div>
         <div class="input-field col s6">
            <i class="material-icons prefix" id="stateicon">edit_location</i>
-          <select>
+          <select id="state">
             <option value="" disabled selected>Choose your option</option>
             <option value="Alabama">Alabama</option>
             <option value="Alaska">Alaska</option>
@@ -152,7 +152,7 @@
       <div class="row">
         <div class="input-field col s6" >
           <i class="material-icons prefix" id="fire">whatshot</i>
-          <select>
+          <select id="sPref">
             <option value="" disabled selected>Choose your option</option>
             <option value="Indica">Indica</option>
             <option value="Sativa">Sativa</option>
@@ -162,7 +162,7 @@
         </div>
         <div class="input-field col s6">
             <i class="material-icons prefix" id="joint">brush</i>
-          <select>
+          <select id="tPref">
 
             <option value="" disabled selected>Choose your option</option>
             <option value="Edibles">Edibles</option>
@@ -175,11 +175,12 @@
       <div class="row">
         <div class="input-field col s12" >
            <i class="material-icons prefix" id="emailicon">attach_money</i>
-          <input id="email" type="text">
-          <label for="email" id="emailI">Budget</label>
+          <input id="budget" type="text">
+          <label for="budget" id="budgetI">Budget</label>
         </div>
       </div>
-      <a class="btn-large waves-light waves-effect" id="formSubmit">Submit</a>
+      <input id="id" type="hidden">
+      <button class="btn-large waves-light waves-effect" id="formSubmit">Submit</button>
     </form>
 
   </div>
