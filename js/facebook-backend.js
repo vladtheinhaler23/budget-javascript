@@ -43,17 +43,12 @@ function statusChangeCallback(response, display, displaypic, showDashboard) {
   // Button.  See the onlogin handler attached to it in the sample
   // code below.
   exports.checkLoginState = function(display, displaypic, showDashboard) {
-    console.log("hey");
     FB.getLoginStatus(function(response) {
-      console.log("ho");
-      console.log(response);
       if(response.status === "unknown") {
-        // location.reload();
-        console.log("what");
+        location.reload();
       }
       statusChangeCallback(response, display, displaypic, showDashboard);
     });
-    console.log("fuck")
   };
   function getpic(response, accessToken, displaypic){
     console.log(response.id);

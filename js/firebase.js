@@ -20,6 +20,7 @@ exports.getUserTransactions = function(userId) {
       snapshot.forEach(function(childSnapshot){
         userTransactions.push(childSnapshot.val());
       });
+
       // createUserCard(userTransactions);
 
   });
@@ -41,14 +42,40 @@ firebase.database().ref('/users/' + $("#id").val() + "/transactions").limitToLas
     });
     console.log(userTransactions);
     createUserCard(userTransactions);
-
-})
-exports.getRecentTransactions = function(userId) {
-  var currentMonth = moment().format("MM");
+  });
+exports.setProgress = function(userId, barInit) {
+  console.log(userId);
+  var currentMonth = parseInt(moment().format("MM"));
   console.log(currentMonth);
-  firebase.database().ref('/users/' + userId + "/transactions").orderByChild("month").equalTo(parseInt(currentMonth)).once('value').then(function(snapshot) {
-    var recentTransactions = snapshot.val();
-    console.log(recentTransactions);
+  var recents = [];
+  var userBudget = 0;
+  var totalSpent = 0;
+  firebase.database().ref('/users/' + userId).once('value').then(function(snapshot) {
+    userBudget = snapshot.val().budget;
+  });
+  firebase.database().ref('/users/' + userId + "/transactions").orderByChild("month").equalTo(currentMonth ).once('value').then(function(snapshot) {
+    snapshot.forEach(function(childSnapshot){
+      recents.push(childSnapshot.val());
+      console.log(recents);
+    })
+  console.log(recents);
+
+     recents.forEach(function(recent) {
+       console.log(recent.amount);
+       totalSpent += recent.amount;
+     });
+}).then(function(){
+  console.log(totalSpent);
+  barInit(totalSpent/userBudget);
+});
+
+};
+
+exports.getRecentTransactions = function(userId) {
+  var currentMonth = parseInt(moment().format("MM"));
+  firebase.database().ref('/users/' + userId + "/transactions").orderByChild("month").equalTo(currentMonth ).once('value').then(function(snapshot) {
+  var recentTransactions = snapshot.val();
+
 });
 };
 

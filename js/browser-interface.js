@@ -5,6 +5,7 @@ var updateUser = require('./../js/firebase.js').updateUser;
 var writeUserTransaction = require('./../js/firebase.js').writeUserTransaction;
 var getRecentTransactions = require('./../js/firebase.js').getRecentTransactions;
 var getLastFive = require('./../js/firebase.js').getLastFive;
+var setProgress = require('./../js/firebase.js').setProgress;
 var moment = require('moment');
 // var loading_screen = pleaseWait({
 //   logo: "pictures/logo.png",
@@ -68,6 +69,7 @@ function displaypic(response){
 }
 var showDashboard = function(){
   getLastFive($("#id").val());
+  setProgress($("#id").val(), barInit);
   $("#landpage").hide();
   $("#dashboard").fadeIn(900);
 }
@@ -85,6 +87,8 @@ $(document).ready(function(){
       showDashboard();
     });
     $("#test").click(function() {
+      setProgress($("#id").val());
+
     });
 
     $("#testTrans").click(function() {
@@ -98,17 +102,18 @@ $(document).ready(function(){
       var id = $("#id").val();
       console.log(id);
       var newTransaction = {
-        amount: $("#amount").val(),
+        amount: parseInt($("#amount").val()),
        date: moment($("#date").val()).format("MMMM Do, YYYY"),
        dispensary: $("#dispensary").val(),
        efc: $("#tPrefTrans").val(),
        ish: $("#sPrefTrans").val(),
        location: $("#location").val(),
        strain: $("#strain").val(),
-       month: moment($("#date").val()).format("MM"),
+       month: parseInt(moment($("#date").val()).format("MM")),
       }
       writeUserTransaction(id, newTransaction);
       $("#transactionSubmit")[0].reset();
+      location.reload();
 
     });
     $("#form").submit(function(e){
@@ -135,6 +140,6 @@ $(document).ready(function(){
       };
       console.log(user);
       updateUser(id, user);
-
+      showDashboard();
     });
 });
