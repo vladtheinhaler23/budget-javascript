@@ -20,19 +20,38 @@ exports.getUserTransactions = function(userId) {
       snapshot.forEach(function(childSnapshot){
         userTransactions.push(childSnapshot.val());
       });
-      console.log(userTransactions);
       createUserCard(userTransactions);
 
 
   });
 };
+exports.setProgress = function(userId, barInit) {
+  var currentMonth = parseInt(moment().format("MM"));
+  var recents = [];
+  var userBudget = 0;
+   var totalSpent = 0;
+  firebase.database().ref('/users/' + userId).once('value').then(function(snapshot) {
+    userBudget = snapshot.val().budget;
+  });
+  firebase.database().ref('/users/' + userId + "/transactions").orderByChild("month").equalTo(currentMonth ).once('value').then(function(snapshot) {
+  snapshot.forEach(function(childSnapshot){
+    recents.push(childSnapshot.val());
+  });
+
+     recents.forEach(function(recent) {
+       totalSpent += recent.amount;
+     });
+}).then(function(){
+  barInit(totalSpent/userBudget);
+});
+
+};
 
 exports.getRecentTransactions = function(userId) {
-  var currentMonth = moment().format("MM");
-  console.log(currentMonth);
+  var currentMonth = parseInt(moment().format("MM"));
   firebase.database().ref('/users/' + userId + "/transactions").orderByChild("month").equalTo(currentMonth ).once('value').then(function(snapshot) {
   var recentTransactions = snapshot.val();
-  console.log(recentTransactions);
+
 });
 };
 

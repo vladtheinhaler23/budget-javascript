@@ -4,6 +4,7 @@ var transactions = require('./../js/firebase.js').transactions;
 var updateUser = require('./../js/firebase.js').updateUser;
 var writeUserTransaction = require('./../js/firebase.js').writeUserTransaction;
 var getRecentTransactions = require('./../js/firebase.js').getRecentTransactions;
+var setProgress = require('./../js/firebase.js').setProgress;
 var moment = require('moment');
 // var loading_screen = pleaseWait({
 //   logo: "pictures/logo.png",
@@ -79,9 +80,7 @@ $(document).ready(function(){
       showDashboard();
     });
     $("#test").click(function() {
-      var userTransactions = getUserTransactions(0);
-      console.log("Hello");
-      var recentTransactions = getRecentTransactions(0);
+      setProgress(0);
     });
 
     $("#testTrans").click(function() {
