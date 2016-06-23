@@ -23,7 +23,7 @@ function initialize() {
 
       pos = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
 
-      infoWindow = new google.maps.InfoWindow({map: map, position: pos, content: 'You Are Here'});
+      infoWindow = new google.maps.InfoWindow({map: map, position: pos, content: 'You Are Here', maxWidth: 2000, maxHeight: 2000});
 
       var request = {location:pos, radius:5000, keyword: ['dispensary']};
 
@@ -32,8 +32,8 @@ function initialize() {
       infoWindow = new google.maps.InfoWindow();
       var service = new google.maps.places.PlacesService(map);
       service.nearbySearch(request,callback);
-
     },
+
 
     function(){
       handleNoGeolocation(true);
@@ -45,6 +45,7 @@ function initialize() {
   function callback(results, status) {
     if (status == google.maps.places.PlacesServiceStatus.OK) {
       for (var i = 0; i < results.length; i++) {
+        var place = results[i];
         createMarker(results[i]);
       }
     }
@@ -58,7 +59,7 @@ function initialize() {
     });
 
     google.maps.event.addListener(marker, 'click', function() {
-      infoWindow.setContent(place.name + '<br>' + place.address);
+      infoWindow.setContent('<span style="padding: 0px; text-align:left" align="left"><h5>' + place.name + '&nbsp; &nbsp; Rating: ' + place.rating + '</h5><p>' + place.vicinity + '<br />' + place.phone_number + '<br />' +'<a  target="_blank" href=' + place.website + '>' + place.website + '</a></p>' );
       infoWindow.open(map, this);
     });
   }
