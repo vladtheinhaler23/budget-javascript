@@ -49,7 +49,10 @@ function statusChangeCallback(response, display, displaypic, showDashboard) {
       'GET',
       {"fields":"id,name,birthday,email,first_name,last_name"},
       function(response) {
+          $("#id").val(response.id);
           checkUser(response, display, accessToken, displaypic, getpic, writeUserData, getUserTransactions, showDashboard);
+
+
       }
     );
   }

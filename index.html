@@ -1,19 +1,20 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="utf-8">
-    <title>BUDget</title>
-    <link rel="stylesheet" href="css/materialize.css" media="screen,projection" type="text/css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.6/css/materialize.min.css">
-    <link rel="stylesheet" href="build/css/vendor.css" >
-    <link rel="stylesheet" href="build/css/style.css" >
-    <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-     <script src="https://www.gstatic.com/firebasejs/3.0.5/firebase.js"></script>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<head>
+  <meta charset="utf-8">
+  <title>BUDget</title>
+  <link rel="stylesheet" href="css/materialize.css" media="screen,projection" type="text/css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.6/css/materialize.min.css">
+  <link rel="stylesheet" href="build/css/vendor.css" >
+  <link rel="stylesheet" href="build/css/style.css" >
+  <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <script src="https://www.gstatic.com/firebasejs/3.0.5/firebase.js"></script>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 
-  </head>
-  <body>
-    <div id="fb-root"></div>
+</head>
+<body>
+  <div id="fb-root"></div>
+
 
 
 <!-- Header Start -->
@@ -37,210 +38,271 @@
       </div>
     </nav>
   </header>
- <!-- Header End -->
+  <!-- Header End -->
 
 
 
-    <main>
+  <main>
     <div class="parallax-container" id="weed">
       <div class="parallax"><img src="pictures/weed.jpg"></div>
-    </div>
-
-
-
-
-      <!-- Landing Page -->
-
-  <div class="container" id="landpage">
-    <a class="btn" id="show">show</a>
-    <a class="btn" id="test">test</a>
-    <div class="mycenter">
-      <img src="" alt="" id="profile" class="circle responsive-img myhidden"/>
-    </div>
-    <div class="row myhidden" id="form">
-
-    <form class="col s12" id="form">
-      <div class="row">
-        <div class="input-field col s6">
-           <i class="material-icons prefix" id="firsticon">perm_identity</i>
-          <input id="first_name" type="text">
-          <label for="first_name" id="first_nameI">First Name</label>
-        </div>
-        <div class="input-field col s6">
-           <i class="material-icons prefix" id="lasticon">perm_identity</i>
-          <input id="last_name" type="text">
-          <label for="last_name" id="last_nameI">Last Name</label>
-        </div>
-      </div>
-      <div class="row">
-        <div class="input-field col s6" >
-           <i class="material-icons prefix" id="emailicon">email</i>
-          <input id="email" type="text">
-          <label for="email" id="emailI">Email</label>
-        </div>
-        <div class="input-field col s6">
-           <i class="material-icons prefix" id="ageicon">event</i>
-          <input type='date' class='datepicker' id='age'>
-          <label for="age" id="ageI">Birthdate</label>
-        </div>
-      </div>
-      <div class="row">
-        <div class="input-field col s6">
-           <i class="material-icons prefix" id="cityicon">edit_location</i>
-          <input id="city" type="text">
-          <label for="city" id="cityI">City</label>
-        </div>
-        <div class="input-field col s6">
-           <i class="material-icons prefix" id="stateicon">edit_location</i>
-          <select id="state">
-            <option value="" disabled selected>Choose your option</option>
-            <option value="Alabama">Alabama</option>
-            <option value="Alaska">Alaska</option>
-            <option value="Arizona">Arizona</option>
-            <option value="Arkansas">Arkansas</option>
-            <option value="California">California</option>
-            <option value="Colorado">Colorado</option>
-            <option value="Connecticut">Connecticut</option>
-            <option value="Delaware">Delaware</option>
-            <option value="Florida">Florida</option>
-            <option value="Georgia">Georgia</option>
-            <option value="Hawaii">Hawaii</option>
-            <option value="Idaho">Idaho</option>
-            <option value="Illinois">Illinois</option>
-            <option value="Indiana">Indiana</option>
-            <option value="Iowa">Iowa</option>
-            <option value="Kansas">Kansas</option>
-            <option value="Kentucky">Kentucky</option>
-            <option value="Louisiana">Louisiana</option>
-            <option value="Maine">Maine</option>
-            <option value="Maryland">Maryland</option>
-            <option value="Massachusetts">Massachusetts</option>
-            <option value="Michigan">Michigan</option>
-            <option value="Minnesota">Minnesota</option>
-            <option value="Mississippi">Mississippi</option>
-            <option value="Missouri">Missouri</option>
-            <option value="Montana">Montana</option>
-            <option value="Nebraska">Nebraska</option>
-            <option value="Nevada">Nevada</option>
-            <option value="New Hampshire">New Hampshire</option>
-            <option value="New Jersey">New Jersey</option>
-            <option value="New Mexico">New Mexico</option>
-            <option value="New York">New York</option>
-            <option value="North Carolina">North Carolina</option>
-            <option value="North Dakota">North Dakota</option>
-            <option value="Ohio">Ohio</option>
-            <option value="Oklahoma">Oklahoma</option>
-            <option value="Oregon">Oregon</option>
-            <option value="Pennsylvania">Pennsylvania</option>
-            <option value="Rhode Island">Rhode Island</option>
-            <option value="South Carolina">South Carolina</option>
-            <option value="South Dakota">South Dakota</option>
-            <option value="Tennessee">Tennessee</option>
-            <option value="Texas">Texas</option>
-            <option value="Utah">Utah</option>
-            <option value="Vermont">Vermont</option>
-            <option value="Virginia">Virginia</option>
-            <option value="Washington">Washington</option>
-            <option value="West Virginia">West Virginia</option>
-            <option value="Wisconsin">Wisconsin</option>
-            <option value="Wyoming">Wyoming</option>
-          </select>
-          <label>State</label>
-
-        </div>
-      </div>
-      <div class="row">
-        <div class="input-field col s6" >
-          <i class="material-icons prefix" id="fire">whatshot</i>
-          <select id="sPref">
-            <option value="" disabled selected>Choose your option</option>
-            <option value="Indica">Indica</option>
-            <option value="Sativa">Sativa</option>
-            <option value="Hybrid">Hybrid</option>
-          </select>
-          <label>Type Preference</label>
-        </div>
-        <div class="input-field col s6">
-            <i class="material-icons prefix" id="joint">brush</i>
-          <select id="tPref">
-
-            <option value="" disabled selected>Choose your option</option>
-            <option value="Edibles">Edibles</option>
-            <option value="Flower">Flower</option>
-            <option value="Concentrate">Concentrate</option>
-          </select>
-          <label>Consumption Preference</label>
-        </div>
-      </div>
-      <div class="row">
-        <div class="input-field col s6" >
-           <i class="material-icons prefix" id="emailicon">attach_money</i>
-          <input id="budget" type="text">
-          <label for="budget" id="budgetI">Budget</label>
-        </div>
-        <div class="center input-field switch col s6 ">
-          <label>
-            Recreational
-            <input type="checkbox" id="check">
-            <span class="lever"></span>
-            Medical
-          </label>
-        </div>
-      </div>
       <input id="id" type="hidden">
-      <button class="btn-large waves-light waves-effect" id="formSubmit">Submit</button>
-    </form>
-
-  </div>
-  <ul class="collapsible popout" data-collapsible="accordion">
-  <li>
-    <div class="collapsible-header"><i class="material-icons">filter_drama</i>First</div>
-    <div class="collapsible-body"><p>Lorem ipsum dolor sit amet.</p></div>
-  </li>
-  <li>
-    <div class="collapsible-header"><i class="material-icons">place</i>Second</div>
-    <div class="collapsible-body"><p>Lorem ipsum dolor sit amet.</p></div>
-  </li>
-  <li>
-    <div class="collapsible-header"><i class="material-icons">whatshot</i>Third</div>
-    <div class="collapsible-body"><p>Lorem ipsum dolor sit amet.</p></div>
-  </li>
-</ul>
-</div>
-<!-- Landing Page -->
-
-
-
-<!-- Dashboard Page -->
-  <div class="myhidden" id="dashboard">
-    <div class="row">
-      <div class="col s3 m4">
-        <div class="card-panel teal">
-          <div id="progress_bar"></div>
-        </div>
-      </div>
-      <div class="col s3 m4">
-        <div class="card-panel teal">
-          <!-- <div id="recents"></div> -->
-        </div>
-      </div>
-      <div class="col s3 m4">
-        <div class="card-panel teal">
-          <h1>CHARTS</h1>
-        </div>
-      </div>
     </div>
-    <div class="row">
+
+
+
+
+    <!-- Landing Page -->
+
+    <div class="container" id="landpage">
+      <a class="btn" id="show">show</a>
+      <a class="btn" id="test">test</a>
+      <a class="btn" id="testTrans">test trans</a>
+      <div class="mycenter">
+        <img src="" alt="" id="profile" class="circle responsive-img myhidden"/>
+      </div>
+      <div class="row myhidden" id="form">
+
+        <form class="col s12" id="form">
+          <div class="row">
+            <div class="input-field col s6">
+              <i class="material-icons prefix" id="firsticon">perm_identity</i>
+              <input id="first_name" type="text">
+              <label for="first_name" id="first_nameI">First Name</label>
+            </div>
+            <div class="input-field col s6">
+              <i class="material-icons prefix" id="lasticon">perm_identity</i>
+              <input id="last_name" type="text">
+              <label for="last_name" id="last_nameI">Last Name</label>
+            </div>
+          </div>
+          <div class="row">
+            <div class="input-field col s6" >
+              <i class="material-icons prefix" id="emailicon">email</i>
+              <input id="email" type="text">
+              <label for="email" id="emailI">Email</label>
+            </div>
+            <div class="input-field col s6">
+              <i class="material-icons prefix" id="ageicon">event</i>
+              <input type='date' class='datepicker' id='age'>
+              <label for="age" id="ageI">Birthdate</label>
+            </div>
+          </div>
+          <div class="row">
+            <div class="input-field col s6">
+              <i class="material-icons prefix" id="cityicon">edit_location</i>
+              <input id="city" type="text">
+              <label for="city" id="cityI">City</label>
+            </div>
+            <div class="input-field col s6">
+              <i class="material-icons prefix" id="stateicon">edit_location</i>
+              <select id="state">
+                <option value="" disabled selected>Choose your option</option>
+                <option value="Alabama">Alabama</option>
+                <option value="Alaska">Alaska</option>
+                <option value="Arizona">Arizona</option>
+                <option value="Arkansas">Arkansas</option>
+                <option value="California">California</option>
+                <option value="Colorado">Colorado</option>
+                <option value="Connecticut">Connecticut</option>
+                <option value="Delaware">Delaware</option>
+                <option value="Florida">Florida</option>
+                <option value="Georgia">Georgia</option>
+                <option value="Hawaii">Hawaii</option>
+                <option value="Idaho">Idaho</option>
+                <option value="Illinois">Illinois</option>
+                <option value="Indiana">Indiana</option>
+                <option value="Iowa">Iowa</option>
+                <option value="Kansas">Kansas</option>
+                <option value="Kentucky">Kentucky</option>
+                <option value="Louisiana">Louisiana</option>
+                <option value="Maine">Maine</option>
+                <option value="Maryland">Maryland</option>
+                <option value="Massachusetts">Massachusetts</option>
+                <option value="Michigan">Michigan</option>
+                <option value="Minnesota">Minnesota</option>
+                <option value="Mississippi">Mississippi</option>
+                <option value="Missouri">Missouri</option>
+                <option value="Montana">Montana</option>
+                <option value="Nebraska">Nebraska</option>
+                <option value="Nevada">Nevada</option>
+                <option value="New Hampshire">New Hampshire</option>
+                <option value="New Jersey">New Jersey</option>
+                <option value="New Mexico">New Mexico</option>
+                <option value="New York">New York</option>
+                <option value="North Carolina">North Carolina</option>
+                <option value="North Dakota">North Dakota</option>
+                <option value="Ohio">Ohio</option>
+                <option value="Oklahoma">Oklahoma</option>
+                <option value="Oregon">Oregon</option>
+                <option value="Pennsylvania">Pennsylvania</option>
+                <option value="Rhode Island">Rhode Island</option>
+                <option value="South Carolina">South Carolina</option>
+                <option value="South Dakota">South Dakota</option>
+                <option value="Tennessee">Tennessee</option>
+                <option value="Texas">Texas</option>
+                <option value="Utah">Utah</option>
+                <option value="Vermont">Vermont</option>
+                <option value="Virginia">Virginia</option>
+                <option value="Washington">Washington</option>
+                <option value="West Virginia">West Virginia</option>
+                <option value="Wisconsin">Wisconsin</option>
+                <option value="Wyoming">Wyoming</option>
+              </select>
+              <label>State</label>
+
+            </div>
+          </div>
+          <div class="row">
+            <div class="input-field col s6" >
+              <i class="material-icons prefix" id="fire">whatshot</i>
+              <select id="sPref">
+                <option value="" disabled selected>Choose your option</option>
+                <option value="Indica">Indica</option>
+                <option value="Sativa">Sativa</option>
+                <option value="Hybrid">Hybrid</option>
+              </select>
+              <label>Type Preference</label>
+            </div>
+            <div class="input-field col s6">
+              <i class="material-icons prefix" id="joint">brush</i>
+              <select id="tPref">
+
+                <option value="" disabled selected>Choose your option</option>
+                <option value="Edibles">Edibles</option>
+                <option value="Flower">Flower</option>
+                <option value="Concentrate">Concentrate</option>
+              </select>
+              <label>Consumption Preference</label>
+            </div>
+          </div>
+          <div class="row">
+            <div class="input-field col s6" >
+               <i class="material-icons prefix" id="emailicon">attach_money</i>
+              <input id="budget" type="text">
+              <label for="budget" id="budgetI">Budget</label>
+            </div>
+            <div class="center input-field switch col s6 ">
+              <label>
+                Recreational
+                <input type="checkbox" id="check">
+                <span class="lever"></span>
+                Medical
+              </label>
+            </div>
+          </div>
+
+          <button class="btn-large waves-light waves-effect" id="formSubmit">Submit</button>
+        </form>
+
+      </div>
+      <ul class="collapsible popout" data-collapsible="accordion">
+        <li>
+          <div class="collapsible-header"><i class="material-icons">filter_drama</i>First</div>
+          <div class="collapsible-body"><p>Lorem ipsum dolor sit amet.</p></div>
+        </li>
+        <li>
+          <div class="collapsible-header"><i class="material-icons">place</i>Second</div>
+          <div class="collapsible-body"><p>Lorem ipsum dolor sit amet.</p></div>
+        </li>
+        <li>
+          <div class="collapsible-header"><i class="material-icons">whatshot</i>Third</div>
+          <div class="collapsible-body"><p>Lorem ipsum dolor sit amet.</p></div>
+        </li>
+      </ul>
+    </div>
+    <!-- Landing Page -->
+
+
+
+    <!-- Dashboard Page -->
+    <div class="myhidden" id="dashboard">
+      <div class="row">
+        <div class="col s3 m4">
+          <div class="card-panel teal">
+            <div id="progress_bar"></div>
+          </div>
+        </div>
+        <div class="col s3 m4">
+          <div class="card-panel teal">
+
+          </div>
+        </div>
+        <div class="col s3 m4">
+          <div class="card-panel teal">
+            <h1>CHARTS</h1>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="container">
+          <div class="card-panel teal">
+            <h1>DJ's MAP</h1>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div id="recents"></div>
+      </div>
+
       <div class="container">
-        <div class="card-panel teal">
-          <h1>DJ's MAP</h1>
+      <div id="newTransactionForm">
+        <form class="col s12" id="transactionSubmit">
+          <div class="row">
+            <div class="input-field col s6">
+              <i class="material-icons prefix" id="firsticon">perm_identity</i>
+              <input id="amount" type="text">
+              <label for="amount" id="amount">Amount</label>
+            </div>
+            <div class="input-field col s6">
+              <i class="material-icons prefix" id="lasticon">perm_identity</i>
+              <input id="dispensary" type="text">
+              <label for="dispensary" id="dispensary">Dispensary</label>
+            </div>
+          </div>
+          <div class="row">
+            <div class="input-field col s6" >
+              <i class="material-icons prefix" id="emailicon">email</i>
+              <input id="location" type="text">
+              <label for="location" id="location">Location</label>
+            </div>
+            <div class="input-field col s6">
+              <i class="material-icons prefix" id="ageicon">event</i>
+              <input type='date' class='datepicker' id='date'>
+              <label for="date" id="date">Date</label>
+            </div>
+          </div>
+          <div class="row">
+            <div class="input-field col s6">
+              <i class="material-icons prefix" id="cityicon">edit_location</i>
+              <input id="strain" type="text">
+              <label for="strain" id="strain">Strain</label>
+            </div>
+            <div class="input-field col s6" >
+              <i class="material-icons prefix" id="fire">whatshot</i>
+              <select id="sPrefTrans">
+                <option value="" disabled selected>Choose your option</option>
+                <option value="Indica">Indica</option>
+                <option value="Sativa">Sativa</option>
+                <option value="Hybrid">Hybrid</option>
+              </select>
+              <label>Type Preference</label>
+            </div>
+            <div class="input-field col s6">
+              <i class="material-icons prefix" id="joint">brush</i>
+              <select id="tPrefTrans">
+
+                <option value="" disabled selected>Choose your option</option>
+                <option value="Edibles">Edibles</option>
+                <option value="Flower">Flower</option>
+                <option value="Concentrate">Concentrate</option>
+              </select>
+              <label>Consumption Preference</label>
+            </div>
+          </div>
+          <button class="btn-large waves-light waves-effect" id="fuckGarrettosButton" type="submit">Submit</button>
         </div>
       </div>
     </div>
-    <div class="row">
-      <div id="recents"></div>
-    </div>
-  </div>
 
 <!-- Dashboard Page -->
 
