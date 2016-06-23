@@ -1,3 +1,5 @@
+var createUserCard = require('./../js/recent-transaction-interface.js').createUserCard;
+
 var config = {
  apiKey: "AIzaSyDAazSLzo-KZeqTds-eWeut4a40Tr8-kxc",
  authDomain: "budget-1617b.firebaseapp.com",
@@ -23,9 +25,8 @@ exports.getUserTransactions = function(userId) {
   firebase.database().ref('/users/' + userId + "/transactions").once('value').then(function(snapshot) {
   var userTransactions = snapshot.val();
   console.log(userTransactions);
-  userTransactions.forEach(function(transaction) {
-    $("#recents").append("<p>" + "Date: " + transaction.date + "<br>" + "Amount: " + transaction.amount + "<br>" + "Dispensary: " + transaction.dispensary + "</p>");
-  })
+  createUserCard(userTransactions);
+
 
 });
 };
