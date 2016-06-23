@@ -11,3 +11,14 @@ exports.writeUserData = function(userId, name) {
    username: name
  });
 };
+
+exports.getUserTransactions = function(userId) {
+  firebase.database().ref('/users/' + userId + "/transactions").once('value').then(function(snapshot) {
+  var userTransactions = snapshot.val();
+  console.log(userTransactions);
+  userTransactions.forEach(function(transaction) {
+    $("#recents").append("<p>" + "Date: " + transaction.date + "<br>" + "Amount: " + transaction.amount + "<br>" + "Dispensary: " + transaction.dispensary + "</p>");
+  })
+
+});
+};
