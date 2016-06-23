@@ -8,5 +8,5 @@ var appid = require('./../.env').appid;
 }(document, 'script', 'facebook-jssdk'));
 
 showInfo = function(){
-    checkLoginState(display, displaypic);
+    checkLoginState(display, displaypic, showDashboard);
 }

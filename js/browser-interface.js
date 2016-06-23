@@ -29,7 +29,7 @@ function display(response){
   console.log(response);
   if(response.birthday != null){
     var date = new Date(response.birthday);
-    var dob = moment(date).format("MMMM Do, YYYY");
+    var dob = moment(date).format("MMMM-DD-YYYY");
     $("#age").val(dob);
     $("#ageI").addClass("active");
     $("#ageicon").addClass("active");
@@ -63,6 +63,10 @@ function displaypic(response){
   $("#profile").fadeIn(1200);
 
 }
+var showDashboard = function(){
+  $("#landpage").hide();
+  $("#dashboard").fadeIn(900);
+}
 
 $(document).ready(function(){
 
@@ -70,8 +74,7 @@ $(document).ready(function(){
       checkLoginState(display, displaypic);
     });
     $(".dashboard").click(function(){
-      $("#landpage").hide();
-      $("#dashboard").fadeIn(900);
+      showDashboard();
     });
     $("#test").click(function() {
       var userTransactions = getUserTransactions(0);
@@ -79,6 +82,13 @@ $(document).ready(function(){
     });
     $("#form").submit(function(e){
       e.preventDefault();
+      var temp;
+      if($('#check').is(':checked')){
+        temp = "Medical"
+      }else{
+        temp = "Recreational"
+      }
+      console.log($("#age").val());
       var id = $("#id").val();
       var user = {
         first_name: $("#first_name").val(),
@@ -89,10 +99,11 @@ $(document).ready(function(){
         state: $("#state").val(),
         sPref: $("#sPref").val(),
         tPref: $("#tPref").val(),
+        medrec: temp,
         budget: parseInt($("#budget").val())
       };
       console.log(user);
-      // updateUser(id, user);
+      updateUser(id, user);
 
     });
 });

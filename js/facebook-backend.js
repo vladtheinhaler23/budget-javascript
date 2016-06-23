@@ -2,13 +2,14 @@ var moment = require('moment');
 var appid = require('./../.env').appid;
 var writeUserData = require("./../js/firebase.js").writeUserData;
 var checkUser = require("./../js/firebase.js").checkUser;
-function statusChangeCallback(response, display, displaypic) {
+var getUserTransactions = require("./../js/firebase.js").getUserTransactions;
+function statusChangeCallback(response, display, displaypic, showDashboard) {
     // The response object is returned with a status field that lets the
     // app know the current login status of the person.
     // Full docs on the response object can be found in the documentation
     // for FB.getLoginStatus().
     if (response.status === 'connected') {
-        getinfo(response, display, displaypic);
+        getinfo(response, display, displaypic, showDashboard);
     } else if (response.status === 'not_authorized') {
 
     } else {
@@ -20,13 +21,13 @@ function statusChangeCallback(response, display, displaypic) {
   // This function is called when someone finishes with the Login
   // Button.  See the onlogin handler attached to it in the sample
   // code below.
-  exports.checkLoginState = function(display, displaypic) {
+  exports.checkLoginState = function(display, displaypic, showDashboard) {
     FB.getLoginStatus(function(response) {
       console.log(response);
       if(response.status === "unknown") {
         location.reload();
       }
-      statusChangeCallback(response, display, displaypic);
+      statusChangeCallback(response, display, displaypic, showDashboard);
     });
   };
   function getpic(response, accessToken, displaypic){
@@ -41,14 +42,14 @@ function statusChangeCallback(response, display, displaypic) {
   );
   }
 
-  function getinfo(response, display, displaypic){
+  function getinfo(response, display, displaypic, showDashboard){
     var accessToken = response.authResponse.accessToken;
     FB.api(
       '/me',
       'GET',
       {"fields":"id,name,birthday,email,first_name,last_name"},
       function(response) {
-          checkUser(response, display, accessToken, displaypic, getpic, writeUserData);
+          checkUser(response, display, accessToken, displaypic, getpic, writeUserData, getUserTransactions, showDashboard);
       }
     );
   }
