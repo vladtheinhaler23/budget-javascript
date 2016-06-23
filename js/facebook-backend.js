@@ -21,6 +21,10 @@ function statusChangeCallback(response, display, displaypic) {
   // code below.
   exports.checkLoginState = function(display, displaypic) {
     FB.getLoginStatus(function(response) {
+      console.log(response);
+      if(response.status === "unknown") {
+        location.reload();
+      }
       statusChangeCallback(response, display, displaypic);
     });
   };
