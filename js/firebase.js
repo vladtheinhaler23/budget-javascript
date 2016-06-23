@@ -23,6 +23,25 @@ exports.getUserTransactions = function(userId) {
 
   });
 };
+
+exports.getRecentTransactions = function(userId) {
+  var currentMonth = moment().format("MM");
+  console.log(currentMonth);
+  firebase.database().ref('/users/' + userId + "/transactions").orderByChild("month").equalTo(currentMonth ).once('value').then(function(snapshot) {
+  var recentTransactions = snapshot.val();
+  console.log(recentTransactions);
+});
+};
+
+exports.writeUserTransaction = function(userId, newTransaction) {
+  var newTransactionKey = firebase.database().ref().child('transactions').push().key;
+
+  var updates = {};
+  updates['/users/' + userId + '/transactions/' + newTransactionKey] = newTransaction;
+
+  return firebase.database().ref().update(updates);
+};
+
 exports.checkUser = function(FBuser, display, accessToken, displaypic, getpic, writeUserData){
   firebase.database().ref('/users/' + FBuser.id).once('value').then(function(snapshot) {
   var user = snapshot.val();
@@ -36,7 +55,7 @@ exports.checkUser = function(FBuser, display, accessToken, displaypic, getpic, w
 };
 exports.updateUser = function(id, user){
   var updates = {};
-  updates['/user-posts/' + id] = user;
+  updates['/users/' + id] = user;
 
   return firebase.database().ref().update(updates);
-}
+};
