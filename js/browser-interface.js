@@ -4,6 +4,7 @@ var transactions = require('./../js/firebase.js').transactions;
 var updateUser = require('./../js/firebase.js').updateUser;
 var writeUserTransaction = require('./../js/firebase.js').writeUserTransaction;
 var getRecentTransactions = require('./../js/firebase.js').getRecentTransactions;
+var getLastFive = require('./../js/firebase.js').getLastFive;
 var moment = require('moment');
 // var loading_screen = pleaseWait({
 //   logo: "pictures/logo.png",
@@ -66,6 +67,7 @@ function displaypic(response){
 
 }
 var showDashboard = function(){
+  getLastFive($("#id").val());
   $("#landpage").hide();
   $("#dashboard").fadeIn(900);
 }
@@ -74,19 +76,21 @@ var showDashboard = function(){
 // });
 
 $(document).ready(function(){
+
+
+    $("#show").click(function(){
+      checkLoginState(display, displaypic, showDashboard);
+    });
     $(".dashboard").click(function(){
       showDashboard();
     });
     $("#test").click(function() {
-      var userTransactions = getUserTransactions(0);
-      console.log("Hello");
-      var recentTransactions = getRecentTransactions(0);
     });
 
     $("#testTrans").click(function() {
-      // console.log("Hello");
-      // var recentTransactions = getRecentTransactions(0);
-      // console.log(recentTransactions);
+      console.log("Hello");
+      var recentTransactions = getRecentTransactions(0);
+      console.log(recentTransactions);
     });
 
     $("#transactionSubmit").submit(function(event) {
@@ -103,8 +107,8 @@ $(document).ready(function(){
        strain: $("#strain").val(),
        month: moment($("#date").val()).format("MM"),
       }
-      console.log(newTransaction);
       writeUserTransaction(id, newTransaction);
+      $("#transactionSubmit")[0].reset();
 
     });
     $("#form").submit(function(e){

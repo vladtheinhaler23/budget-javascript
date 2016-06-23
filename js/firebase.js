@@ -20,13 +20,29 @@ exports.getUserTransactions = function(userId) {
       snapshot.forEach(function(childSnapshot){
         userTransactions.push(childSnapshot.val());
       });
-      console.log(userTransactions);
-      createUserCard(userTransactions);
-
+      // createUserCard(userTransactions);
 
   });
 };
+  var userTransactions = [];
+exports.getLastFive = function(userId) {
 
+  firebase.database().ref('/users/' + userId + "/transactions").limitToLast(4).once("value").then(function(snapshot) {
+      snapshot.forEach(function(childSnapshot){
+        userTransactions.push(childSnapshot.val());
+      });
+      createUserCard(userTransactions);
+
+  })
+};
+firebase.database().ref('/users/' + $("#id").val() + "/transactions").limitToLast(4).on("value", function(snapshot) {
+    snapshot.forEach(function(childSnapshot){
+      userTransactions.push(childSnapshot.val());
+    });
+    console.log(userTransactions);
+    createUserCard(userTransactions);
+
+})
 exports.getRecentTransactions = function(userId) {
   var currentMonth = moment().format("MM");
   console.log(currentMonth);
