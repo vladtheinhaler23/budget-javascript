@@ -69,12 +69,11 @@ var showDashboard = function(){
   $("#landpage").hide();
   $("#dashboard").fadeIn(900);
 }
+// $(window).load(function() {
+//   checkLoginState(display, displaypic, showDashboard);
+// });
 
 $(document).ready(function(){
-
-    $("#show").click(function(){
-      checkLoginState(display, displaypic);
-    });
     $(".dashboard").click(function(){
       showDashboard();
     });

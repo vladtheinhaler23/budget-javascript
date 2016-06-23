@@ -30,9 +30,9 @@ exports.getUserTransactions = function(userId) {
 exports.getRecentTransactions = function(userId) {
   var currentMonth = moment().format("MM");
   console.log(currentMonth);
-  firebase.database().ref('/users/' + userId + "/transactions").orderByChild("month").equalTo(currentMonth ).once('value').then(function(snapshot) {
-  var recentTransactions = snapshot.val();
-  console.log(recentTransactions);
+  firebase.database().ref('/users/' + userId + "/transactions").orderByChild("month").equalTo(parseInt(currentMonth)).once('value').then(function(snapshot) {
+    var recentTransactions = snapshot.val();
+    console.log(recentTransactions);
 });
 };
 
@@ -50,7 +50,7 @@ exports.checkUser = function(FBuser, display, accessToken, displaypic, getpic, w
   var user = snapshot.val();
   if(user === null){
     display(FBuser);
-    // writeUserData(FBuser.id, FBuser.name);
+    writeUserData(FBuser.id, FBuser.name);
     getpic(FBuser, accessToken, displaypic);
   }else{
     showDashboard();
