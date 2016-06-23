@@ -1,4 +1,6 @@
 var checkLoginState = require('./../js/facebook-backend.js').checkLoginState;
+var getUserTransactions = require('./../js/firebase.js').getUserTransactions;
+var transactions = require('./../js/firebase.js').transactions;
 var moment = require('moment');
 // var loading_screen = pleaseWait({
 //   logo: "pictures/logo.png",
@@ -69,4 +71,9 @@ $(document).ready(function(){
       $("#landpage").hide();
       $("#dashboard").fadeIn(900);
     });
+    $("#test").click(function() {
+      var userTransactions = getUserTransactions(0);
+      console.log(userTransactions);
+
+    })
 });
