@@ -8,6 +8,13 @@ firebase.initializeApp(config);
 
 exports.writeUserData = function(userId, name) {
  firebase.database().ref('users/' + userId).set({
-   username: name
+   username: name,
+   email: "",
+   city: "",
+   state: "",
+   typepref: "",
+   eflpref: "",
+   budget: "",
+   transactions: ""
  });
 };

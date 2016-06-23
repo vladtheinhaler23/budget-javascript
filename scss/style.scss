@@ -92,3 +92,9 @@ body.pg-loaded > .inner {
 .card-panel {
   min-height: 250px;
 }
+#joint{
+  -ms-transform: rotate(180deg); /* IE 9 */
+   -webkit-transform: rotate(180deg); /* Chrome, Safari, Opera */
+   transform: rotate(180deg) translateX(10px);
+
+}
