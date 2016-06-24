@@ -65,7 +65,7 @@ function initialize() {
 
     google.maps.event.addListener(marker, 'click', function() {
       console.log(place);
-      infoWindow.setContent('<span style="padding: 0px; text-align:left" align="left"><h5>' + place.name + '&nbsp; &nbsp; Rating: ' + place.rating + '</h5><p>' + place.vicinity + '&nbsp; &nbsp; <img src="' + place.icon + '" class="pic circle responsive-img"><br /></p></span>' );
+      infoWindow.setContent('<span style="padding: 0px; text-align:left" align="left"><h5>' + place.name + '&nbsp; &nbsp; Rating: ' + place.rating + '</h5><p>' + place.vicinity + '&nbsp; &nbsp; <img src="' + place.icon + '" class="pic circle responsive-img"><br />' +  + '</p></span>' );
       infoWindow.open(map, this);
     });
   }

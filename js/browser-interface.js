@@ -9,8 +9,6 @@ var setProgress = require('./../js/firebase.js').setProgress;
 var moment = require('moment');
 function display(response){
   $("#landingpage").hide();
-  console.log("wtf");
-  console.log(response);
   if(response.birthday != null){
 
     var date = new Date(response.birthday);

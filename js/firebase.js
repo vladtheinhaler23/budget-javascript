@@ -83,7 +83,6 @@ exports.writeUserTransaction = function(userId, newTransaction) {
 };
 
 exports.checkUser = function(FBuser, display, accessToken, displaypic, getpic, writeUserData, getUserTransactions, showDashboard){
-  console.log("i can");
   firebase.database().ref('/users/' + FBuser.id).once('value').then(function(snapshot) {
   var user = snapshot.val();
 
