@@ -6,7 +6,8 @@ $(document).ready(function() {
   setProgress(0, barInit);
 })
 
-var barInit = function(width) {
+
+var barInit = function(width, userBudget) {
   var bar = new ProgressBar.SemiCircle(progress_bar, {
     strokeWidth: 6,
     color: '#FFEA82',
@@ -16,7 +17,7 @@ var barInit = function(width) {
     duration: 1400,
     svgStyle: null,
     text: {
-      value: '',
+      value: '0',
       alignToBottom: false
     },
     from: {color: '#FFEA82'},
@@ -28,7 +29,7 @@ var barInit = function(width) {
       if (value === 0) {
         bar.setText('');
       } else {
-        bar.setText(value);
+        bar.setText(value + '% of $' + parseInt(userBudget));
       }
 
       bar.text.style.color = state.color;

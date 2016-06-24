@@ -25,7 +25,7 @@ exports.getUserTransactions = function(userId) {
 
   });
 };
-exports.setProgress = function(userId, barInit) {
+exports.setProgress = function(userId, barInit, setBudget) {
   var currentMonth = parseInt(moment().format("MM"));
   var recents = [];
   var userBudget = 0;
@@ -42,7 +42,8 @@ exports.setProgress = function(userId, barInit) {
        totalSpent += recent.amount;
      });
 }).then(function(){
-  barInit(totalSpent/userBudget);
+  barInit(totalSpent/userBudget, userBudget);
+
 });
 
 };
