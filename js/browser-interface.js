@@ -7,31 +7,12 @@ var getRecentTransactions = require('./../js/firebase.js').getRecentTransactions
 var getLastFive = require('./../js/firebase.js').getLastFive;
 var setProgress = require('./../js/firebase.js').setProgress;
 var moment = require('moment');
-// var loading_screen = pleaseWait({
-//   logo: "pictures/logo.png",
-//   backgroundColor: '#43a047',
-//   loadingHtml: "<div class='birthday'><h2 id='message'>You Must be at least 18 Years Old to view this page</h2><div id='dateinput'><label for='birthday'>Enter Birthday</label><input type='date' class='datepicker' id='birthday'><a class='waves-effect waves-light btn-large' id='submit'>Submit</a></div></div>"
-// });
-// $('.datepicker').pickadate({
-//   selectMonths: true, // Creates a dropdown to control month
-//   selectYears: 70 // Creates a dropdown of 15 years to control year
-// });
-// $("#submit").click(function(){
-//   var birthdate = $("#birthday").val();
-//   var date = new Date(birthdate);
-//   var dob = moment(date).format("YYYY-MM-DD");
-//   var age = moment().diff(moment(dob, 'YYYYMMDD'), 'years');
-//   if(age >=18){
-//     loading_screen.finish();
-//   }else{
-//     $("#message").text("You are under 18 and not allowed to view this site please leave");
-//     $("#dateinput").fadeOut();
-//   }
-// })
 function display(response){
-
+  $("#landingpage").hide();
+  console.log("wtf");
   console.log(response);
   if(response.birthday != null){
+
     var date = new Date(response.birthday);
     var dob = moment(date).format("MMMM-DD-YYYY");
     $("#age").val(dob);
@@ -56,7 +37,7 @@ function display(response){
 
 
 
-  $("#form").fadeIn(1200);
+  $("#landpage").fadeIn(1200);
 }
 function displaypic(response){
   if(response.data.is_silhouette){
@@ -68,6 +49,7 @@ function displaypic(response){
 
 }
 var showDashboard = function(){
+    $("#landingpage").hide();
   getLastFive($("#id").val());
   setProgress($("#id").val(), barInit);
   $("#landpage").hide();
@@ -76,7 +58,10 @@ var showDashboard = function(){
 // $(window).load(function() {
 //   checkLoginState(display, displaypic, showDashboard);
 // });
-
+function randPic(pictures){
+  var i = Math.floor((Math.random() * pictures.length) + 1);
+  return pictures[i];
+}
 $(document).ready(function(){
 
 
@@ -99,10 +84,21 @@ $(document).ready(function(){
 
     $("#transactionSubmit").submit(function(event) {
       event.preventDefault();
+      var weedpics = ["pictures/weed1.jpg","pictures/weed2.jpg","pictures/weed3.jpg","pictures/weed4.jpg","pictures/weed5.jpg","pictures/weed6.jpg","pictures/weed7.jpg","pictures/weed8.jpg","pictures/weed9.jpg","pictures/weed10.jpg"];
+      var shatpics = ["pictures/shat1.jpg","pictures/shat2.jpg","pictures/shat3.jpg","pictures/shat4.jpg","pictures/shat5.jpg","pictures/shat6.jpg","pictures/shat7.jpg","pictures/shat8.jpg","pictures/shat9.jpg","pictures/shat10.jpg"];
+      var edpics = ["pictures/ed1.jpg","pictures/ed2.jpg","pictures/ed3.jpg","pictures/ed4.jpg","pictures/ed5.jpg"];
+      var randompic = "";
+      if($("#tPrefTrans").val() === "Flower"){
+        randompic = randPic(weedpics);
+      } else if($("#tPrefTrans").val() === "Concentrate"){
+        randompic = randPic(shatpics);
+      }else{
+        randompic = randPic(edpics);
+      }
       var id = $("#id").val();
       console.log(id);
       var newTransaction = {
-        amount: parseInt($("#amount").val()),
+       amount: parseInt($("#amount").val()),
        date: moment($("#date").val()).format("MMMM Do, YYYY"),
        dispensary: $("#dispensary").val(),
        efc: $("#tPrefTrans").val(),
@@ -110,6 +106,7 @@ $(document).ready(function(){
        location: $("#location").val(),
        strain: $("#strain").val(),
        month: parseInt(moment($("#date").val()).format("MM")),
+       picture: randompic
       }
       writeUserTransaction(id, newTransaction);
       $("#transactionSubmit")[0].reset();

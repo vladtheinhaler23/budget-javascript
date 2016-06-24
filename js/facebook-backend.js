@@ -79,6 +79,7 @@ function statusChangeCallback(response, display, displaypic, showDashboard) {
 
   exports.getinfoExport = function(response, display, displaypic, showDashboard){
     var accessToken = response.authResponse.accessToken;
+    console.log("because");
     FB.api(
       '/me',
       'GET',

@@ -1,12 +1,13 @@
 
 exports.createUserCard = function(userTransactions) {
       $("#recents").text("");
+      $("#recents").append("<h2 class='center'>Recent Transactions</h2><div class='divider'></div>")
   userTransactions.forEach(function(transaction) {
     $("#recents").append(
-  "<div class='col s3 m3 l3'>" +
-    "<div class='card'>" +
+  "<div class='col s12 m13 l3'>" +
+    "<div class='card medium'>" +
       "<div class='card-image waves-effect waves-block waves-light'>" +
-        "<img class='activator' src='images/office.jpg'>" +
+        "<img class='activator' src='" + transaction.picture + "''>" +
       "</div>" +
       "<div class='card-content'>" +
         "<span class='card-title activator grey-text text-darken-4'>" + transaction.amount + "<br>" + transaction.date + "<br>" + transaction.strain + "<i class='material-icons right'>more_vert</i></span>" +

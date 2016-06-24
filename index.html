@@ -9,7 +9,7 @@
   <link rel="stylesheet" href="build/css/style.css" >
   <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <script src="http://maps.googleapis.com/maps/api/js?key=AIzaSyCHvvrxAaTmdqfL30wlFbCHBs96vpDW44g&libraries=places&callback=initialize&sensor=false" async defer></script>
-  <script type="text/javascript" src="js/location-interface.js"></script>
+
   <script src="https://www.gstatic.com/firebasejs/3.0.5/firebase.js"></script>
   <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.0.0/jquery.min.js"></script>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
@@ -20,27 +20,24 @@
 
 
 
-<!-- Header Start -->
-<header>
-    <nav class="green darken-1 z-depth-3">
-      <div class="nav-wrapper container">
-        <a href="/" class="brand-logo">Logo</a>
-        <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
-        <ul class="right hide-on-med-and-down">
-          <li><a href="sass.html">Sass</a></li>
-          <li><a class="dashboard">Dashboard</a></li>
-          <li><div class="fb-login-button" data-max-rows="2" data-size="xlarge" onlogin="showInfo()" data-show-faces="false" data-auto-logout-link="true"></div></li>
-          <li><a href="mobile.html">Mobile</a></li>
-        </ul>
-        <ul class="side-nav" id="mobile-demo">
-          <li><a href="sass.html">Sass</a></li>
-          <li><a class="dashboard">Dashboard</a></li>
-          <li><a href="collapsible.html">Javascript</a></li>
-          <li><a href="mobile.html">Mobile</a></li>
-        </ul>
-      </div>
-    </nav>
-  </header>
+  <!-- Header Start -->
+      <header>
+        <nav class="  green darken-1 z-depth-3">
+          <div class="nav-wrapper container">
+            <a href="/" class="brand-logo">BUDget</a>
+            <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
+            <ul class="right hide-on-med-and-down">
+              <li><a href="#">Journal</a></li>
+              <li><a class="dashboard">Dashboard</a></li>
+              <li><div class="fb-login-button" data-max-rows="2" data-size="xlarge" onlogin="showInfo()" data-show-faces="false" data-auto-logout-link="true"></div></li>
+            </ul>
+            <ul class="side-nav" id="mobile-demo">
+              <li><a href="#">Journal</a></li>
+              <li><a class="dashboard">Dashboard</a></li>
+            </ul>
+          </div>
+        </nav>
+      </header>
   <!-- Header End -->
 
 
@@ -55,50 +52,93 @@
 
 
     <!-- Landing Page -->
+    <div class="container">
+  <div id="landingpage">
+    <h3>What we are about</h3>
+​
+    <p>Blimey lugger fluke lad Chain Shot booty Letter of Marque landlubber or just lubber doubloon grog. Reef sails Sail ho sutler quarter topgallant keel fire ship coffer hang the jib overhaul. Sloop gabion Plate Fleet Jack Tar cackle fruit ballast jury mast sheet mizzenmast coffer.
+    Matey gibbet coffer Jack Ketch crow's nest deadlights man-of-war cackle fruit pirate schooner. Line loot gaff pillage parley schooner long boat blow the man down starboard galleon. Booty jury mast main sheet chantey ballast to go on account Sink me blow the man down bring a spring upon her cable loot.
+    Weigh anchor doubloon yard snow spanker loaded to the gunwalls walk the plank prow piracy spyglass. Lateen sail list yo-ho-ho mizzenmast crimp scallywag starboard carouser handsomely bilge rat. Mizzen Spanish Main keelhaul chase guns ye Pieces of Eight blow the man down cog crow's nest league.<p>
+​
+  <button class="btn blue center" id="mybtn">Sign Up Now!</button>
+​
 
-    <div class="container" id="landpage">
-      <a class="btn" id="show">show</a>
-      <a class="btn" id="test">test</a>
-      <a class="btn" id="testTrans">test trans</a>
-      <div class="mycenter">
-        <img src="" alt="" id="profile" class="circle responsive-img myhidden"/>
+  <div class="divider"></div>
+  <div class=" center current-features">
+    <h2>Current Features</h2>
+    <div class="row">
+      <div class="col m4 s12">
+        <i class="large material-icons">person</i>
+        <h3>Sign in with Facebook</h3>
+        <p>being able to sign in with facebook</p>
       </div>
-      <div class="row myhidden" id="form">
+      <div class="col m4 s12">
+        <i class="large material-icons">attach_money</i>
+        <h3>Set a Budget</h3>
+        <p>You are able to see you budget for the month, as well as see recent transactions</p>
+      </div>
+      <div class="col m4 s12">
+        <i class="large material-icons">satellite</i>
+        <h3>Map</h3>
+        <p>Allowing you to see despensories within 2 miles of you </p>
+      </div>
+    </div>
+  </div>
+  <div class="divider"></div>
+  <div class="center features-coming-soon">
+    <h2>Features Coming Soon</h2>
+    <div class="row">
+      <div class="col m4 s12">
+        <i class="large material-icons">create</i>
+        <h3>Journal</h3>
+        <p>being able to sign in with facebook</p>
+      </div>
+    </div>
+  </div>
+</div>
+  <!-- landing page -->
+​
+ <!-- login Page -->
+    <div id="landpage" class="myhidden">
+      <div class="mycenter">
+        <img src="" alt="" id="profile" class="circle responsive-img "/>
+      </div>
+      <div class="row">
 
         <form class="col s12" id="form">
           <div class="row">
             <div class="input-field col s6">
               <i class="material-icons prefix" id="firsticon">perm_identity</i>
-              <input id="first_name" type="text">
+              <input id="first_name" type="text" required>
               <label for="first_name" id="first_nameI">First Name</label>
             </div>
             <div class="input-field col s6">
               <i class="material-icons prefix" id="lasticon">perm_identity</i>
-              <input id="last_name" type="text">
+              <input id="last_name" type="text" required>
               <label for="last_name" id="last_nameI">Last Name</label>
             </div>
           </div>
           <div class="row">
             <div class="input-field col s6" >
               <i class="material-icons prefix" id="emailicon">email</i>
-              <input id="email" type="text">
+              <input id="email" type="text" required>
               <label for="email" id="emailI">Email</label>
             </div>
             <div class="input-field col s6">
               <i class="material-icons prefix" id="ageicon">event</i>
-              <input type='date' class='datepicker' id='age'>
+              <input type='date' class='datepicker' id='age' required>
               <label for="age" id="ageI">Birthdate</label>
             </div>
           </div>
           <div class="row">
             <div class="input-field col s6">
               <i class="material-icons prefix" id="cityicon">edit_location</i>
-              <input id="city" type="text">
+              <input id="city" type="text" required>
               <label for="city" id="cityI">City</label>
             </div>
             <div class="input-field col s6">
               <i class="material-icons prefix" id="stateicon">edit_location</i>
-              <select id="state">
+              <select id="state" required>
                 <option value="" disabled selected>Choose your option</option>
                 <option value="Alabama">Alabama</option>
                 <option value="Alaska">Alaska</option>
@@ -158,7 +198,7 @@
           <div class="row">
             <div class="input-field col s6" >
               <i class="material-icons prefix" id="fire">whatshot</i>
-              <select id="sPref">
+              <select id="sPref" required>
                 <option value="" disabled selected>Choose your option</option>
                 <option value="Indica">Indica</option>
                 <option value="Sativa">Sativa</option>
@@ -168,7 +208,7 @@
             </div>
             <div class="input-field col s6">
               <i class="material-icons prefix" id="joint">brush</i>
-              <select id="tPref">
+              <select id="tPref" required>
 
                 <option value="" disabled selected>Choose your option</option>
                 <option value="Edibles">Edibles</option>
@@ -181,7 +221,7 @@
           <div class="row">
             <div class="input-field col s6" >
                <i class="material-icons prefix" id="emailicon">attach_money</i>
-              <input id="budget" type="text">
+              <input id="budget" type="text" pattern="^[0-9]*$" required>
               <label for="budget" id="budgetI">Budget</label>
             </div>
             <div class="center input-field switch col s6 ">
@@ -198,22 +238,9 @@
         </form>
 
       </div>
-      <ul class="collapsible popout" data-collapsible="accordion">
-        <li>
-          <div class="collapsible-header"><i class="material-icons">filter_drama</i>First</div>
-          <div class="collapsible-body"><p>Lorem ipsum dolor sit amet.</p></div>
-        </li>
-        <li>
-          <div class="collapsible-header"><i class="material-icons">place</i>Second</div>
-          <div class="collapsible-body"><p>Lorem ipsum dolor sit amet.</p></div>
-        </li>
-        <li>
-          <div class="collapsible-header"><i class="material-icons">whatshot</i>Third</div>
-          <div class="collapsible-body"><p>Lorem ipsum dolor sit amet.</p></div>
-        </li>
-      </ul>
     </div>
-    <!-- Landing Page -->
+  </div>
+    <!-- Login -->
 
 
 
@@ -236,6 +263,7 @@
           </div>
         </div>
       </div>
+
       <div class="row">
         <div class="container">
           <div class="card-panel" id="map">
@@ -243,46 +271,50 @@
           </div>
         </div>
       </div>
+      <div class="parallax-container" id="shatter">
+        <div class="parallax"><img src="pictures/shat4.jpg"></div>
+      </div>
       <div class="row">
         <div id="recents"></div>
       </div>
 
       <div class="container">
       <div id="newTransactionForm">
+        <h2 class='center'>New Transaction</h2><div class='divider'></div>
         <form class="col s12" id="transactionSubmit">
           <div class="row">
             <div class="input-field col s6">
               <i class="material-icons prefix" id="firsticon">perm_identity</i>
-              <input id="amount" type="text">
+              <input id="amount" type="text" pattern="^[0-9]*$" required>
               <label for="amount" id="amount">Amount</label>
             </div>
             <div class="input-field col s6">
               <i class="material-icons prefix" id="lasticon">perm_identity</i>
-              <input id="dispensary" type="text">
+              <input id="dispensary" type="text" required>
               <label for="dispensary" id="dispensary">Dispensary</label>
             </div>
           </div>
           <div class="row">
             <div class="input-field col s6" >
               <i class="material-icons prefix" id="emailicon">email</i>
-              <input id="location" type="text">
+              <input id="location" type="text" required>
               <label for="location" id="location">Location</label>
             </div>
             <div class="input-field col s6">
               <i class="material-icons prefix" id="ageicon">event</i>
-              <input type='date' class='datepicker' id='date'>
+              <input type='date' class='datepicker' id='date' required>
               <label for="date" id="date">Date</label>
             </div>
           </div>
           <div class="row">
             <div class="input-field col s6">
               <i class="material-icons prefix" id="cityicon">edit_location</i>
-              <input id="strain" type="text">
+              <input id="strain" type="text" required>
               <label for="strain" id="strain">Strain</label>
             </div>
             <div class="input-field col s6" >
               <i class="material-icons prefix" id="fire">whatshot</i>
-              <select id="sPrefTrans">
+              <select id="sPrefTrans" required>
                 <option value="" disabled selected>Choose your option</option>
                 <option value="Indica">Indica</option>
                 <option value="Sativa">Sativa</option>
@@ -292,7 +324,7 @@
             </div>
             <div class="input-field col s6">
               <i class="material-icons prefix" id="joint">brush</i>
-              <select id="tPrefTrans">
+              <select id="tPrefTrans" required>
 
                 <option value="" disabled selected>Choose your option</option>
                 <option value="Edibles">Edibles</option>
@@ -320,35 +352,35 @@
 
 
 <!-- Footer -->
-<footer class="page-footer  green darken-1">
-   <div class="container">
-     <div class="row">
-       <div class="col l6 s12">
-         <h5 class="white-text">Footer Content</h5>
-         <p class="grey-text text-lighten-4">You can use rows and columns here to organize your footer content.</p>
-       </div>
-       <div class="col l4 offset-l2 s12">
-         <h5 class="white-text">Links</h5>
-         <ul>
-           <li><a class="grey-text text-lighten-3" href="#!">Link 1</a></li>
-           <li><a class="grey-text text-lighten-3" href="#!">Link 2</a></li>
-           <li><a class="grey-text text-lighten-3" href="#!">Link 3</a></li>
-           <li><a class="grey-text text-lighten-3" href="#!">Link 4</a></li>
-         </ul>
-       </div>
-     </div>
-   </div>
-   <div class="footer-copyright">
-     <div class="container">
-     © 2014 Copyright Text
-     <a class="grey-text text-lighten-4 right" href="#!">More Links</a>
-     </div>
-   </div>
- </footer>
+   <footer class="page-footer  green darken-1">
+      <div class="container">
+        <div class="row">
+          <div class="col l6 left-align s12">
+            <h5 class="white-text">Footer Content</h5>
+            <p class="grey-text text-lighten-4">Matey gibbet coffer Jack Ketch crow's nest deadlights man-of-war cackle fruit pirate schooner.</p>
+          </div>
+          <div class="col l6 right-align s12">
+            <h5 class="white-text">Contact Us</h5>
+            <ul>
+              <li><a class="grey-text text-lighten-3" href="franksco39@gmail.com">Cory Franks</a></li>
+              <li><a class="grey-text text-lighten-3" href="joshlogan32323@gmail.com">Josh Logan</a></li>
+              <li><a class="grey-text text-lighten-3" href="laker77Gmail.com">Garrett Biernat</a></li>
+              <li><a class="grey-text text-lighten-3" href="djroychoudhury@yahoo.com">DJ Roychoudhury</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="footer-copyright">
+        <div class="container">
+        © 2016 Copyright
+        </div>
+      </div>
+   </footer>
   </body>
   <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.6/js/materialize.min.js"></script>
   <script src="js/init.js"></script>
+  <script type="text/javascript" src="js/location-interface.js"></script>
   <script src="build/js/vendor.min.js"></script>
   <script src="build/js/app.js"></script>
 

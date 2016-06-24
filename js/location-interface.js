@@ -5,7 +5,11 @@ var service;
 var marker;
 var pos;
 
-
+$(window).load(function(){
+  $("#map").animate({"height" : "50em"}, 300,function(){
+          initialize();
+      });
+})
 //Map #1: .
 function initialize() {
   var mapOptions = {

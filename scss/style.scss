@@ -3,9 +3,16 @@
 
 $inputColor: #1e91d6;
 
-
-
-
+#dashboard{
+  margin: 2em 0 3em 0;
+}
+#shatter{
+  margin: 3em 0 3em 0;
+  height: 30vh;
+}
+#map.card-panel{
+  height: 40em;
+}
 .myhidden{
   display: none;
 }
@@ -101,4 +108,7 @@ body.pg-loaded > .inner {
    -webkit-transform: rotate(180deg); /* Chrome, Safari, Opera */
    transform: rotate(180deg) translateX(10px);
 
+}
+.divider{
+  margin: 1.3em;
 }

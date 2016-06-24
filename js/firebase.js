@@ -36,13 +36,6 @@ exports.getLastFive = function(userId) {
 
   })
 };
-firebase.database().ref('/users/' + $("#id").val() + "/transactions").limitToLast(4).on("value", function(snapshot) {
-    snapshot.forEach(function(childSnapshot){
-      userTransactions.push(childSnapshot.val());
-    });
-    console.log(userTransactions);
-    createUserCard(userTransactions);
-  });
 exports.setProgress = function(userId, barInit) {
   console.log(userId);
   var currentMonth = parseInt(moment().format("MM"));
@@ -89,9 +82,13 @@ exports.writeUserTransaction = function(userId, newTransaction) {
 };
 
 exports.checkUser = function(FBuser, display, accessToken, displaypic, getpic, writeUserData, getUserTransactions, showDashboard){
+  console.log("i can");
   firebase.database().ref('/users/' + FBuser.id).once('value').then(function(snapshot) {
   var user = snapshot.val();
+
+
   if(user === null){
+
     display(FBuser);
     writeUserData(FBuser.id, FBuser.name);
     getpic(FBuser, accessToken, displaypic);
