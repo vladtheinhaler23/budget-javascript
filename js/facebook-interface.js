@@ -28,7 +28,7 @@ window.fbAsyncInit = function() {
            var agescreen = pleaseWait({
              logo: "pictures/logo.png",
              backgroundColor: '#43a047',
-             loadingHtml: "<div class='birthday'><h2 id='message'>You Must be at least 18 Years Old to view this page</h2><div id='dateinput'><label for='birthday'>Enter Birthday</label><input type='date' class='datepicker' id='birthday'><a class='waves-effect waves-light btn-large' id='submit'>Submit</a></div></div>"
+             loadingHtml: "<div class='birthday'><h4 id='message'>You Must be at least 18 Years Old to view this page</h4><div id='dateinput'><label for='birthday'>Enter Birthday</label><input type='date' class='datepicker' id='birthday'><a class='waves-effect waves-light btn-large' id='submit'>Submit</a></div></div>"
            });
            $('.datepicker').pickadate({
              selectMonths: true, // Creates a dropdown to control month
