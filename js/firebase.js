@@ -25,6 +25,18 @@ exports.getUserTransactions = function(userId) {
 
   });
 };
+
+exports.getLastFive = function(userId) {
+  var userTransactions = [];
+  firebase.database().ref('/users/' + userId + "/transactions").limitToLast(4).once('value').then(function(snapshot) {
+      snapshot.forEach(function(childSnapshot){
+        userTransactions.push(childSnapshot.val());
+      });
+      createUserCard(userTransactions);
+
+  });
+};
+
 exports.setProgress = function(userId, barInit, setBudget) {
   console.log(userId);
   var currentMonth = parseInt(moment().format("MM"));
