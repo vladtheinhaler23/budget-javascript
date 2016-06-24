@@ -25,18 +25,7 @@ exports.getUserTransactions = function(userId) {
 
   });
 };
-  var userTransactions = [];
-exports.getLastFive = function(userId) {
-
-  firebase.database().ref('/users/' + userId + "/transactions").limitToLast(4).once("value").then(function(snapshot) {
-      snapshot.forEach(function(childSnapshot){
-        userTransactions.push(childSnapshot.val());
-      });
-      createUserCard(userTransactions);
-
-  })
-};
-exports.setProgress = function(userId, barInit) {
+exports.setProgress = function(userId, barInit, setBudget) {
   console.log(userId);
   var currentMonth = parseInt(moment().format("MM"));
   console.log(currentMonth);
@@ -58,8 +47,8 @@ exports.setProgress = function(userId, barInit) {
        totalSpent += recent.amount;
      });
 }).then(function(){
-  console.log(totalSpent);
-  barInit(totalSpent/userBudget);
+
+  barInit(totalSpent/userBudget, userBudget);
 });
 
 };
