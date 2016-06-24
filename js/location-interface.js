@@ -63,7 +63,8 @@ function initialize() {
     });
 
     google.maps.event.addListener(marker, 'click', function() {
-      infoWindow.setContent('<span style="padding: 0px; text-align:left" align="left"><h5>' + place.name + '&nbsp; &nbsp; Rating: ' + place.rating + '</h5><p>' + place.vicinity + '<br />' + place.phone_number + '<br />' +'<a  target="_blank" href=' + place.website + '>' + place.website + '</a></p>' );
+      console.log(place);
+      infoWindow.setContent('<span style="padding: 0px; text-align:left" align="left"><h5>' + place.name + '&nbsp; &nbsp; Rating: ' + place.rating + '</h5><p>' + place.vicinity + '<img src="' + place.icon + '" class="pic circle responsive-img"><br /></p>' );
       infoWindow.open(map, this);
     });
   }
@@ -73,4 +74,4 @@ function initialize() {
 });
 
 }
-google.maps.event.addDomListener(window, 'load', initialize);
+// google.maps.event.addDomListener(window, 'load', initialize);
