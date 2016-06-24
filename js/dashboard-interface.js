@@ -5,6 +5,7 @@ var ProgressBar = require('progressbar.js');
 
 
 var barInit = function(width, userBudget) {
+  $("#barcreated").val("true");
   var bar = new ProgressBar.SemiCircle(progress_bar, {
     strokeWidth: 6,
     color: '#FFEA82',
@@ -19,6 +20,7 @@ var barInit = function(width, userBudget) {
     },
     from: {color: '#FFEA82'},
     to: {color: '#ED6A5A'},
+
     // Set default step function for all animate calls
     step: function(state, bar)  {
       bar.path.setAttribute('stroke', state.color);

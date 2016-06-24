@@ -51,7 +51,9 @@ function displaypic(response){
 var showDashboard = function(){
     $("#landingpage").hide();
   getLastFive($("#id").val());
-  setProgress($("#id").val(), barInit);
+  if( $("#barcreated").val() !== "true"){
+    setProgress($("#id").val(), barInit);
+  }
   $("#landpage").hide();
   $("#dashboard").fadeIn(900);
 }
@@ -113,6 +115,11 @@ $(document).ready(function(){
       location.reload();
 
     });
+    $(".home").click(function(){
+      $("#landingpage").fadeIn(900);
+      $("#landpage").hide();
+      $("#dashboard").hide();
+    })
     $("#form").submit(function(e){
       e.preventDefault();
       var temp;

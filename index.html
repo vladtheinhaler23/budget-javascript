@@ -24,7 +24,7 @@
       <header>
         <nav class="  green darken-1 z-depth-3">
           <div class="nav-wrapper container">
-            <a href="/" class="brand-logo">BUDget</a>
+            <a  class="brand-logo home">BUDget</a>
             <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
             <ul class="right hide-on-med-and-down">
               <li><a href="#">Journal</a></li>
@@ -32,6 +32,7 @@
               <li><div class="fb-login-button" data-max-rows="2" data-size="xlarge" onlogin="showInfo()" data-show-faces="false" data-auto-logout-link="true"></div></li>
             </ul>
             <ul class="side-nav" id="mobile-demo">
+              <li><div class="fb-login-button" data-max-rows="2" data-size="xlarge" onlogin="showInfo()" data-show-faces="false" data-auto-logout-link="true"></div></li>
               <li><a href="#">Journal</a></li>
               <li><a class="dashboard">Dashboard</a></li>
             </ul>
@@ -107,36 +108,36 @@
 
         <form class="col s12" id="form">
           <div class="row">
-            <div class="input-field col s6">
+            <div class="input-field col m6 s12">
               <i class="material-icons prefix" id="firsticon">perm_identity</i>
               <input id="first_name" type="text" required>
               <label for="first_name" id="first_nameI">First Name</label>
             </div>
-            <div class="input-field col s6">
+            <div class="input-field col m6 s12">
               <i class="material-icons prefix" id="lasticon">perm_identity</i>
               <input id="last_name" type="text" required>
               <label for="last_name" id="last_nameI">Last Name</label>
             </div>
           </div>
           <div class="row">
-            <div class="input-field col s6" >
+            <div class="input-field col m6 s12" >
               <i class="material-icons prefix" id="emailicon">email</i>
               <input id="email" type="text" required>
               <label for="email" id="emailI">Email</label>
             </div>
-            <div class="input-field col s6">
+            <div class="input-field col m6 s12">
               <i class="material-icons prefix" id="ageicon">event</i>
               <input type='date' class='datepicker' id='age' required>
               <label for="age" id="ageI">Birthdate</label>
             </div>
           </div>
           <div class="row">
-            <div class="input-field col s6">
+            <div class="input-field col m6 s12">
               <i class="material-icons prefix" id="cityicon">edit_location</i>
               <input id="city" type="text" required>
               <label for="city" id="cityI">City</label>
             </div>
-            <div class="input-field col s6">
+            <div class="input-field col m6 s12">
               <i class="material-icons prefix" id="stateicon">edit_location</i>
               <select id="state" required>
                 <option value="" disabled selected>Choose your option</option>
@@ -196,7 +197,7 @@
             </div>
           </div>
           <div class="row">
-            <div class="input-field col s6" >
+            <div class="input-field col m6 s12" >
               <i class="material-icons prefix" id="fire">whatshot</i>
               <select id="sPref" required>
                 <option value="" disabled selected>Choose your option</option>
@@ -206,7 +207,7 @@
               </select>
               <label>Type Preference</label>
             </div>
-            <div class="input-field col s6">
+            <div class="input-field col m6 s12">
               <i class="material-icons prefix" id="joint">brush</i>
               <select id="tPref" required>
 
@@ -219,12 +220,12 @@
             </div>
           </div>
           <div class="row">
-            <div class="input-field col s6" >
+            <div class="input-field col m6 s12" >
                <i class="material-icons prefix" id="emailicon">attach_money</i>
               <input id="budget" type="text" pattern="^[0-9]*$" required>
               <label for="budget" id="budgetI">Budget</label>
             </div>
-            <div class="center input-field switch col s6 ">
+            <div class="center input-field switch col m6 s12 ">
               <label>
                 Recreational
                 <input type="checkbox" id="check">
@@ -247,22 +248,23 @@
     <!-- Dashboard Page -->
     <div class="myhidden" id="dashboard">
       <div class="row">
-        <div class="col s3 m4">
+        <div class="col s12 m4">
           <div class="card teal">
             <div class="card-content white-text center">
               <span class="card-title">% of Budget</span>
+              <input id="barcreated" type="hidden">
               <div id="progress_bar"></div>
             </div>
           </div>
         </div>
-        <div class="col s3 m4">
+        <div class="col s12 m4">
           <div class="card teal">
             <div class="card-content white-text center">
               <span class="card-title">Something</span>
             </div>
           </div>
         </div>
-        <div class="col s3 m4">
+        <div class="col s12 m4">
           <div class="card teal">
             <div class="card-content white-text center">
               <span class="card-title">Charts</span>
@@ -291,36 +293,36 @@
         <h2 class='center'>New Transaction</h2><div class='divider'></div>
         <form class="col s12" id="transactionSubmit">
           <div class="row">
-            <div class="input-field col s6">
+            <div class="input-field col m6 s12">
               <i class="material-icons prefix" id="firsticon">perm_identity</i>
               <input id="amount" type="text" pattern="^[0-9]*$" required>
               <label for="amount" id="amount">Amount</label>
             </div>
-            <div class="input-field col s6">
+            <div class="input-field col m6 s12">
               <i class="material-icons prefix" id="lasticon">perm_identity</i>
               <input id="dispensary" type="text" required>
               <label for="dispensary" id="dispensary">Dispensary</label>
             </div>
           </div>
           <div class="row">
-            <div class="input-field col s6" >
+            <div class="input-field col m6 s12" >
               <i class="material-icons prefix" id="emailicon">email</i>
               <input id="location" type="text" required>
               <label for="location" id="location">Location</label>
             </div>
-            <div class="input-field col s6">
+            <div class="input-field col m6 s12">
               <i class="material-icons prefix" id="ageicon">event</i>
               <input type='date' class='datepicker' id='date' required>
               <label for="date" id="date">Date</label>
             </div>
           </div>
           <div class="row">
-            <div class="input-field col s6">
+            <div class="input-field col m6 s12">
               <i class="material-icons prefix" id="cityicon">edit_location</i>
               <input id="strain" type="text" required>
               <label for="strain" id="strain">Strain</label>
             </div>
-            <div class="input-field col s6" >
+            <div class="input-field col m6 s12" >
               <i class="material-icons prefix" id="fire">whatshot</i>
               <select id="sPrefTrans" required>
                 <option value="" disabled selected>Choose your option</option>
@@ -330,7 +332,7 @@
               </select>
               <label>Type Preference</label>
             </div>
-            <div class="input-field col s6">
+            <div class="input-field col m6 s12">
               <i class="material-icons prefix" id="joint">brush</i>
               <select id="tPrefTrans" required>
 
