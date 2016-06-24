@@ -4,26 +4,6 @@ var appid = require('./../.env').appid;
 var writeUserData = require("./../js/firebase.js").writeUserData;
 var checkUser = require("./../js/firebase.js").checkUser;
 var getUserTransactions = require("./../js/firebase.js").getUserTransactions;
-// window.fbAsyncInit = function() {
-//   FB.init({
-//     appId      : appid,
-//     cookie     : true,  // enable cookies to allow the server to access
-//                         // the session
-//     xfbml      : true,  // parse social plugins on this page
-//     version    : 'v2.6' // use graph api version 2.5
-//   });
-//   FB.getLoginStatus(function(response) {
-//          if (response.status === 'connected') {
-//            console.log(response);
-//             getinfo(response, display, displaypic, showDashboard);
-//          } else if (response.status === 'not_authorized') {
-//           console.log("fuck no");
-//          } else {
-//             console.log("fuck worse");
-//          }
-//      });
-//
-// }
 function statusChangeCallback(response, display, displaypic, showDashboard) {
     // The response object is returned with a status field that lets the
     // app know the current login status of the person.
