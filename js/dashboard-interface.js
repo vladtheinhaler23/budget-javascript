@@ -2,9 +2,6 @@ var getRecentTransactions = require('./../js/firebase.js').getRecentTransactions
 var setProgress = require('./../js/firebase.js').setProgress;
 var ProgressBar = require('progressbar.js');
 
-$(document).ready(function() {
-  setProgress(0, barInit);
-})
 
 
 var barInit = function(width, userBudget) {

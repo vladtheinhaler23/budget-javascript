@@ -20,30 +20,35 @@ exports.getUserTransactions = function(userId) {
       snapshot.forEach(function(childSnapshot){
         userTransactions.push(childSnapshot.val());
       });
-      createUserCard(userTransactions);
 
+      // createUserCard(userTransactions);
 
   });
 };
 exports.setProgress = function(userId, barInit, setBudget) {
+  console.log(userId);
   var currentMonth = parseInt(moment().format("MM"));
+  console.log(currentMonth);
   var recents = [];
   var userBudget = 0;
-   var totalSpent = 0;
+  var totalSpent = 0;
   firebase.database().ref('/users/' + userId).once('value').then(function(snapshot) {
     userBudget = snapshot.val().budget;
   });
   firebase.database().ref('/users/' + userId + "/transactions").orderByChild("month").equalTo(currentMonth ).once('value').then(function(snapshot) {
-  snapshot.forEach(function(childSnapshot){
-    recents.push(childSnapshot.val());
-  });
+    snapshot.forEach(function(childSnapshot){
+      recents.push(childSnapshot.val());
+      console.log(recents);
+    })
+  console.log(recents);
 
      recents.forEach(function(recent) {
+       console.log(recent.amount);
        totalSpent += recent.amount;
      });
 }).then(function(){
-  barInit(totalSpent/userBudget, userBudget);
 
+  barInit(totalSpent/userBudget, userBudget);
 });
 
 };
@@ -66,11 +71,15 @@ exports.writeUserTransaction = function(userId, newTransaction) {
 };
 
 exports.checkUser = function(FBuser, display, accessToken, displaypic, getpic, writeUserData, getUserTransactions, showDashboard){
+  console.log("i can");
   firebase.database().ref('/users/' + FBuser.id).once('value').then(function(snapshot) {
   var user = snapshot.val();
+
+
   if(user === null){
+
     display(FBuser);
-    // writeUserData(FBuser.id, FBuser.name);
+    writeUserData(FBuser.id, FBuser.name);
     getpic(FBuser, accessToken, displaypic);
   }else{
     showDashboard();
