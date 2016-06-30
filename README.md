@@ -2,7 +2,7 @@
 
 #### Team Week Project
 
-#### Author: Joshua Logan, Garrett Biernat, Cory Franks, DJ
+#### Authors: Joshua Logan, Garrett Biernat, Cory Franks, DJ
 ## Description
 _This is web app for legal cannabis users that takes a user's name and budget and stores it and allows the user to log transactions and track the amount they spend against their budget. The site allows the user to store their information so it is available to them later. It also features a progress bar for visualization of their total amount spent relative to their budget._
 
